@@ -18,8 +18,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
+
+// This line was added by default on project creation. 
+// Ommitting as we are explicitly using app.UseRouting(); && app.UseEndpoints to set up our routing
+
+//app.MapControllers();
 
 app.Run();
